@@ -11,8 +11,8 @@ function buttonHandler () {
 function toggleButton (loaded) {
   // fix this method to change the button text
   this.innerHTML = loaded ? "Get next" : "Loading...";
-  this.classList.toggle("button-not-loading");
-  this.classList.toggle("button-loading");
+  this.classList.ontoggle("button-not-loading");
+  this.classList.ontoggle("button-loading");
 }
 
 function getRecords () {

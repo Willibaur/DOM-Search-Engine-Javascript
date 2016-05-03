@@ -10,9 +10,9 @@ function buttonHandler () {
 
 function toggleButton (loaded) {
   // fix this method to change the button text
-  this.innerHTML = loaded ? "Get next" : "Loading...";
-  this.classList.toggle("button-not-loading");
-  this.classList.toggle("button-loading");
+  btn.innerHTML = loaded ? "Get next" : "Loading...";
+  btn.classList.toggle("button-not-loading");
+  btn.classList.toggle("button-loading");
 }
 
 function getRecords () {
