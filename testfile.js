@@ -21,9 +21,12 @@ function getRecords () {
 
   ids.forEach(function(recordId) {
     error = null;
+
     Server.getRecord(recordId, function(error, data) {
       allTheRecords.push(data);
-      processRecords(allTheRecords);
+      if (allTheRecords.length === ids.length) {
+        processRecords(allTheRecords);
+      }
     });
   });
 }
@@ -43,7 +46,6 @@ function getRecords () {
 
 
 function processRecords (records) {
-
   toggleButton(true);
   var sortedRecords = sortRecords(records);
   var html = "";
