@@ -16,26 +16,31 @@ function toggleButton (loaded) {
 }
 
 function getRecords () {
-  // getting the IDs of the records to fetch is a synchronous operation
-  // you don't need to change the next call, it should return the IDs
   var ids = Server.getIds();
+  var allTheRecords = [];
 
+  ids.forEach(function(recordId) {
+    error = null;
+    Server.getRecord(recordId, function(error, data) {
+      allTheRecords.push(data);
+      processRecords(allTheRecords);
+    });
+  });
+}
   // getting each corresponding record is an async operation
   // you need to make sure the list is not rendered until we have all the records!
   // you can get a SINGLE record by calling Server.getRecord(recordId, callbackFunction)
   // callbackFunction takes 2 parameters, error and data
   // the invocation will look like this
-  Server.getRecord(recordId, function (error, data) {
-    // if the fetch is unsuccessful the callback function is invoked with the error only
-    // if the fetch is successful the callback is invoked with error set to null, and data will holds the response (i.e. the record you wanted to retrieve)
-  });
 
+  // if the fetch is unsuccessful the callback function is invoked with the error only
+  // if the fetch is successful the callback is invoked with error set to null, and data will holds the response (i.e. the record you wanted to retrieve)
   // the tricky thing (and what we are assessing) is how to wait for ALL the callbacks to complete before you process the responses?
   // HINT - you know how many times you need to call Server.getRecord before you do it...
   // ...meaning that you have a way of tracking how many have "called back"
   // when you have all the records, call processRecords as follows
-  processRecords(allTheRecords);
-}
+
+
 
 function processRecords (records) {
 
@@ -43,7 +48,7 @@ function processRecords (records) {
   var sortedRecords = sortRecords(records);
   var html = "";
   var tr;
-  sortedRecords.forEach(function (index, value) {
+  sortedRecords.forEach(function (value) {
     tr = "";
     tr +=
     "<tr>" +
