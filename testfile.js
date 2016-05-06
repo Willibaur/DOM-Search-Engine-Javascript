@@ -28,8 +28,7 @@ function getRecords () {
         processRecords(allTheRecords);
       }
     });
-  });
-}
+  });}
   // getting each corresponding record is an async operation
   // you need to make sure the list is not rendered until we have all the records!
   // you can get a SINGLE record by calling Server.getRecord(recordId, callbackFunction)
@@ -68,10 +67,19 @@ function processRecords (records) {
 }
 
 function sortRecords (records) {
+  var sorted = records.sort(function(currentValue, nextValue) {
+    currentValueDate = parseDate(currentValue.date);
+    nextValueDate = parseDate(nextValue.date);
 
-  var sorted = records;
-  // you get brownie points for sorting the results in date order, most recent last
+    return currentValueDate - nextValueDate;
+  });
+
   return sorted;
+}
+
+function parseDate(strDate) {
+  var dateParts = strDate.split("/");
+  return new Date(dateParts[2], (dateParts[1] -1), dateParts[0]);
 }
 
 function addTotals (records) {
