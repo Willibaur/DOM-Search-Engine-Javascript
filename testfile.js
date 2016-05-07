@@ -19,9 +19,13 @@ function getRecords () {
 
   ids.forEach(function(recordId) {
     Server.getRecord(recordId, function(error, data) {
-      allTheRecords.push(data);
-      if (allTheRecords.length === ids.length) {
-        processRecords(allTheRecords);
+      if (error) {
+        console.log(error);
+      } else {
+        allTheRecords.push(data);
+        if (allTheRecords.length === ids.length) {
+          processRecords(allTheRecords);
+        }
       }
     });
   });}
