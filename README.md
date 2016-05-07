@@ -1,19 +1,20 @@
-#Technical Assessment #
+# Debugging excercise #
 
-For this assessment we'll need you to fix some broken code.
+For this excercise I will fix some broken code.
 
 ## What we are looking for ##
 
-This assessment is all about your problem solving and grasp of JavaScript. You shouldn't need any libraries or frameworks, just vanilla JS (ECMAScript 5). We are not testing your knowledge of the latest and greatest ES6 - although if you want to use it you're welcome.
+This excercise is focused on JavaScript. You shouldn't need any libraries or frameworks, just vanilla JS (ECMAScript 5).
+
 
 ## Guidance ##
 
-* You'll probably benefit from using a debugger. We recommend using Chrome and Chrome DevTools for this
+* You will probably benefit from using a debugger.
+* We recommend using Chrome and Chrome DevTools for this
 * You won't need to touch any file except for `testfile.js`
 * You can leave `index.html` alone - any classes / IDs you need are already referenced in `testfile.js` and you shouldn't need to do any extra DOM manipulation
 * Don't go looking for clues in `server.js` - it's minified and won't help anyway
 * Use of libraries isn't necessary
-* Feel free to use the internet if you get stuck
 
 ## What the app should do ##
 
