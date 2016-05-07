@@ -18,8 +18,6 @@ function getRecords () {
   var allTheRecords = [];
 
   ids.forEach(function(recordId) {
-    error = null;
-
     Server.getRecord(recordId, function(error, data) {
       allTheRecords.push(data);
       if (allTheRecords.length === ids.length) {
